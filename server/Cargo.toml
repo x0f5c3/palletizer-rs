@@ -5,7 +5,7 @@ version = "0.2.4"
 authors = ["Maarten de Vries <maarten@de-vri.es>"]
 license = "BSD-2-Clause"
 repository = "https://github.com/de-vri-es/palletizer-rs"
-edition = "2018"
+edition = "2021"
 
 [features]
 default = ["tls"]
@@ -14,7 +14,8 @@ static-openssl = ["openssl/vendored"]
 
 [dependencies]
 chrono = "0.4.19"
-env_logger = "0.9.0"
+time = "0.3.9"
+pretty_env_logger = "0.4.0"
 futures = { version = "0.3.15", default-features = false, features = ["alloc"] }
 hyper = { version = "0.14.7", features = ["http1", "http2", "server", "stream"] }
 log = "0.4.14"
@@ -29,3 +30,14 @@ structopt = "0.3.20"
 tokio = { version = "1.12.0", features = ["net", "process", "rt", "rt-multi-thread"] }
 tokio-openssl = { version = "0.6.2", optional = true }
 toml = "0.5.7"
+clap_complete_command = "0.3.4"
+clap-verbosity-flag = "1.0.0"
+human-panic = "1.0.3"
+
+[dependencies.rocket]
+version = "0.5.0-rc.2"
+features = ["uuid", "mtls", "tls", "json", "secrets"]
+
+[dependencies.clap]
+version = "3.1.18"
+features = ["wrap_help", "cargo", "derive", "unicode"]
